@@ -1,0 +1,15 @@
+INSERT INTO product (`documentation`, `storage_info`, `volume_category`, `weight_category`) VALUES
+('Cuptor incorporabil Beko BIR25400XMS, Electric, Autocuratare catalitica, 72 l, ', 'floors are sound and level', 2, 1),
+('Aragaz Beko FSGT62110DXO, 4 Arzatoare, Gaz, Aprindere ', 'you follow the manufacturer''s installation instructions', 4, 3),
+('Aragaz electric Hansa FCEW53001, 4 Zone de gatit, Cuptor electric, Clasa ', 'where shelving or racking needs to be fixed to a wall, the wall can support the load', 2, 3),
+('Laptop Lenovo IdeaPad 330-15IKB cu procesor Intel® Core™ i3-6006U 2.00 GHz, Skylake, 15.6", 4GB, 128GB SSD, Intel® HD ', 'special safety ladders are provided to avoid people climbing on shelving', 3, 3),
+('Televizor LED Star-Light, 55 cm, 22DM3500, Full HD', 'units are spaced correctly to allow easy access for staff and, if necessary, mechanical-handling equipment such as forklift trucks', 1, 1),
+('Placa de indreptat parul Remington Keratin Protect S8598, invelis ceramic, ', 'shelves and racks are properly aligned and goods don''t overhang shelves', 1, 2),
+('Apa de Parfum Jimmy Choo, Fever, Femei, 60 ml', 'correct maximum loads for racking are displayed', 2, 1),
+('Betoniera semi-profesionala Bisonte, 800 W, 180 L', 'personal protective equipment is used where necessary', 3, 4),
+('Motosapa Ruris 7088 ACC, 7 CP, 3 viteze, 83 cm latime lucru, 3 l, benzina + roti ', 'items are stacked correctly - put the heaviest at the bottom where possible', 1, 4),
+('1100rpm, mandrina SDS-Plus, 3 functii', 'materials that employees frequently need are readily accessible - for example, not above head height', 4, 1),
+('Pachet chiuveta fragranite Franke ROG 610 + Baterie Pola, cartus ceramic, Grafite', 'where shelving or racking needs to be fixed to a wall, the wall can support the load', 1, 2),
+('Lampa solara Flink, tip felinar, 0.08W, 600mAh, Negru', 'items are stacked correctly - put the heaviest at the bottom where possible', 2, 2),
+('Hrana uscata pentru caini, Dog Chow Adult, Talie Mare, Curcan, 14Kg', 'where shelving or racking needs to be fixed to a wall, the wall can support the load', 3, 3),
+('Hrana uscata pentru caini, Select Sensitive, Somon si Orez, 15 kg', 'materials that employees frequently need are readily accessible - for example, not above head height', 2, 4);
