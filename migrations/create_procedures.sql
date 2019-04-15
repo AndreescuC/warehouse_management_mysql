@@ -76,7 +76,7 @@ BEGIN
 END$$
 
 
-CREATE PROCEDURE `handle_archive_orders`(in months_interval int, in valid_limit int)
+CREATE PROCEDURE `handle_archive_orders`(in valid_limit int)
 BEGIN
   DECLARE bDone INT DEFAULT 0;
 
@@ -84,10 +84,9 @@ BEGIN
   DECLARE shipment_id_tmp INT;
   DECLARE warehouse_id_tmp INT;
 
-  DECLARE curs CURSOR FOR SELECT id, shipment_id, warehouse_id FROM order_header oh
+  DECLARE curs CURSOR FOR SELECT oh.id, oh.shipment_id, oh.warehouse_id FROM order_header oh
   LEFT JOIN shipment s on s.id = oh.shipment_id
   WHERE s.id is not null
-  AND s.date > date_sub(curdate(), INTERVAL months_interval MONTH)
   AND oh.`status` = 2
   order by `date` desc limit valid_limit;
 
@@ -105,14 +104,15 @@ BEGIN
 	insert into log(msg, timestamp) values (concat('Archiving order ', id_tmp), now());
 
 	INSERT INTO order_header_archived VALUES (id_tmp, shipment_id_tmp, warehouse_id_tmp);
-    DELETE from order_header where id = id_tmp;
+  DELETE from order_line WHERE order_header_id = id_tmp;
+  DELETE from order_header where id = id_tmp;
   end loop archive;
 
   CLOSE curs;
 END$$
 
 
-CREATE PROCEDURE `handle_archive_shipments`(in months_interval int, in valid_limit int)
+CREATE PROCEDURE `handle_archive_shipments`(in valid_limit int)
 BEGIN
   DECLARE bDone INT DEFAULT 0;
 
@@ -120,8 +120,7 @@ BEGIN
   DECLARE warehouse_id_tmp INT;
 
   DECLARE curs CURSOR FOR  SELECT id, warehouse_id FROM shipment
-  WHERE date > date_sub(curdate(), INTERVAL months_interval MONTH)
-  AND `status` = 2
+  WHERE `status` = 2
   order by `date` desc limit valid_limit;
 
   DECLARE CONTINUE HANDLER FOR NOT FOUND SET bDone = 1;

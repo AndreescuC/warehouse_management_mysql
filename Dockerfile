@@ -15,9 +15,6 @@ RUN cat /my_migrations/create_keys_and_constraints.sql >> /my_migrations/init.sq
 RUN cat /my_migrations/create_procedures.sql >> /my_migrations/init.sql
 RUN cat /my_migrations/create_functions.sql >> /my_migrations/init.sql
 RUN cat /my_migrations/create_triggers.sql >> /my_migrations/init.sql
-#
-## Add starting index at 0
-#RUN cat /my_migrations/auto_increment.sql >> /my_migrations/init.sql
 
 # Concatenate all FIXTURES migrations
 RUN cat /my_migrations/fixtures_warehouse.sql >> /my_migrations/init.sql

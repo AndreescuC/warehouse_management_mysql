@@ -2,12 +2,11 @@ CREATE FUNCTION `archive_orders`() RETURNS int(11)
 BEGIN
 	declare valid_limit int;
     
-	set @months_interval = 3;
     set @procentual_limit = 30;
     
     select ((@procentual_limit / 100) * count(*)) into valid_limit from order_header;
     
-    call handle_archive_orders(@months_interval, valid_limit);
+    call handle_archive_orders(valid_limit);
 RETURN 1;
 END$$
 
@@ -16,12 +15,11 @@ CREATE FUNCTION `archive_shipments`() RETURNS int(11)
 BEGIN
 	declare valid_limit int;
     
-	set @months_interval = 3;
     set @procentual_limit = 30;
     
     select ((@procentual_limit / 100) * count(*)) into valid_limit from shipment;
     
-    call handle_archive_shipments(@months_interval, valid_limit);
+    call handle_archive_shipments(valid_limit);
 RETURN 1;
 END$$
 
